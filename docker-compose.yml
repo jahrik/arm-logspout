@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  logstash:
+  logspout:
     image: jahrik/arm-logspout:arm32v7
     environment:
       # LOGSTASH_URL: "${LOGSTASH_URL}"
