@@ -1,6 +1,11 @@
 IMAGE = "jahrik/arm-logspout"
-TAG = "arm32v7"
 STACK = "elk"
+ARCH := $(shell getconf LONG_BIT)
+TAG = ${ARCH}
+
+# CPP_FLAGS_32 := -D32_BIT ...  Some 32 specific compiler flags ...
+# CPP_FLAGS_64 := -D64_BIT
+# CPP_FLAGS := $(CPP_FLAGS_$(ARCH))  ... all the other flags ...
 
 all: build
 
