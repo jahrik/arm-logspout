@@ -5,7 +5,7 @@ services:
   logspout:
     image: jahrik/arm-logspout:arm32v7
     environment:
-      ROUTE_URIS: 'logstash+udp://rocks:5000'
+      ROUTE_URIS: 'logstash://logstash:5000'
       LOGSPOUT: 'ignore'
       HTTP_PORT: '55444'
       DOCKER_LABELS: 'on'
