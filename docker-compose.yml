@@ -3,7 +3,8 @@ version: '3'
 services:
 
   logspout:
-    image: "jahrik/arm-logspout:${ARCH}"
+    # image: "jahrik/arm-logspout:${ARCH}"
+    image: jahrik/arm-logspout:armv7l
     environment:
       ROUTE_URIS: 'logstash://logstash:5000'
       LOGSPOUT: 'ignore'
