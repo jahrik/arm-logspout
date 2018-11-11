@@ -5,9 +5,24 @@ services:
   logspout:
     image: jahrik/arm-logspout:arm32v7
     environment:
-      # LOGSTASH_URL: "${LOGSTASH_URL}"
-      ROUTE_URIS: 'logstash://rocks:5000'
+      ROUTE_URIS: 'logstash+udp://rocks:5000'
+      LOGSPOUT: 'ignore'
+      HTTP_PORT: '55444'
+      DOCKER_LABELS: 'on'
     volumes:
+      - /etc/hostname:/etc/host_hostname:ro
       - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - '55444:55444'
     deploy:
       mode: global
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        window: 5s
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 128M
+        reservations:
+          memory: 64M
