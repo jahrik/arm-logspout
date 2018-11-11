@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  logstash:
+    image: jahrik/arm-logspout:arm32v7
+    environment:
+      # LOGSTASH_URL: "${LOGSTASH_URL}"
+      ROUTE_URIS: 'logstash://rocks:5000'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      mode: global
