@@ -1,12 +1,16 @@
 #!/usr/bin/env groovy
 
 env.ROUTE_URIS = 'logstash://logstash:5000'
-sh "uname -m > arch.txt"
-env.ARCH = readFile('arch.txt').trim()
 
 node('arm32v7') {
 
     try {
+
+        stage('grab_arch') {
+          sh "uname -m > arch.txt"
+          env.ARCH = readFile('arch.txt').trim()
+          sh 'echo "$ARCH"'
+        }
 
         stage('build') {
             // Clean workspace
