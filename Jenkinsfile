@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-env.LOGSTASH_URL = 'http://rocks:9200'
+env.ROUTE_URIS = 'logstash://logstash:5000'
 
 node('arm32v7') {
 
