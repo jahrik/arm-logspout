@@ -2,7 +2,7 @@
 
 env.ROUTE_URIS = 'logstash://logstash:5000'
 
-node('arm32v7') {
+node('aarch64') {
 
     try {
 
