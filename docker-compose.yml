@@ -4,7 +4,7 @@ services:
 
   logspout:
     # image: "jahrik/arm-logspout:${ARCH}"
-    image: jahrik/arm-logspout:armv7l
+    image: jahrik/arm-logspout:aarch64
     environment:
       ROUTE_URIS: 'logstash://logstash:5000'
       LOGSPOUT: 'ignore'
