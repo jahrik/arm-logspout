@@ -12,6 +12,3 @@ rm -rf /go /var/cache/apk/* /root/.glide
 
 # backwards compatibility
 ln -fs /tmp/docker.sock /var/run/docker.sock
-
-mkdir -p /go/src/github.com/looplab/logspout-logstash/
-wget https://raw.githubusercontent.com/looplab/logspout-logstash/master/logstash.go -O /go/src/github.com/looplab/logspout-logstash/logstash

@@ -1,1 +1,1 @@
-FROM gliderlabs/logspout:master
+FROM bekt/logspout-logstash
