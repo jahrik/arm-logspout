@@ -8,7 +8,7 @@ services:
     networks:
       - elk
     environment:
-      ROUTE_URIS: 'logstash://logstash:5000'
+      ROUTE_URIS: 'logstash://shredder:5000'
       LOGSPOUT: 'ignore'
       HTTP_PORT: '55444'
       DOCKER_LABELS: 'on'
