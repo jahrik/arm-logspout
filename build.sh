@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-apk add --update go build-base git mercurial ca-certificates
+apk add --update go build-base git mercurial ca-certificates wget
 mkdir -p /go/src/github.com/gliderlabs
 cp -r /src /go/src/github.com/gliderlabs/logspout
 cd /go/src/github.com/gliderlabs/logspout
@@ -12,3 +12,6 @@ rm -rf /go /var/cache/apk/* /root/.glide
 
 # backwards compatibility
 ln -fs /tmp/docker.sock /var/run/docker.sock
+
+mkdir -p /go/src/github.com/looplab/logspout-logstash/
+wget https://raw.githubusercontent.com/looplab/logspout-logstash/master/logstash.go -O /go/src/github.com/looplab/logspout-logstash/logstash
