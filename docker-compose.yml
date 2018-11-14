@@ -5,6 +5,8 @@ services:
   logspout:
     # image: "jahrik/arm-logspout:${ARCH}"
     image: jahrik/arm-logspout:aarch64
+    networks:
+      - elk
     environment:
       ROUTE_URIS: 'logstash://logstash:5000'
       LOGSPOUT: 'ignore'
@@ -27,3 +29,8 @@ services:
           memory: 128M
         reservations:
           memory: 64M
+
+networks:
+  elk:
+    driver: overlay
+    external: true
