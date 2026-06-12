@@ -25,7 +25,7 @@ jobs:
           docker run -d --name logspout \
             -v /var/run/docker.sock:/var/run/docker.sock test-image
           sleep 5
-          docker logs logspout | grep -E '# adapters:.*logstash'
+          docker logs logspout 2>&1 | grep -E '# adapters:.*logstash'
 
   release:
     name: Release
