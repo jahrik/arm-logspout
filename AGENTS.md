@@ -16,7 +16,7 @@ make deploy                                 # swarm stack deploy (stack: elk)
 
 ## Quirks
 
-- `FROM gliderlabs/logspout:v3.2.14` is an ONBUILD base: it copies `modules.go` and recompiles logspout with the listed adapters at build time. v3.2.14 (2021) is upstream's final release.
+- `FROM gliderlabs/logspout:v3.2.14` is an ONBUILD base: it copies `build.sh` + `modules.go` from the build context and recompiles logspout with the listed adapters. Both files must exist (`build.sh` is upstream's `custom/build.sh`, vendored verbatim). v3.2.14 (2021) is upstream's final release.
 - The logstash module import is `github.com/looplab/logspout-logstash` (package moved to repo root; the old `/logstash` subpath no longer exists).
 - Needs `/var/run/docker.sock` mounted; startup logs must list `logstash` in `# adapters:`.
 - External `elk` overlay network — keep that wiring.
