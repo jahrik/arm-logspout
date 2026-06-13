@@ -1,19 +1,17 @@
+.EXPORT_ALL_VARIABLES:
 IMAGE = "jahrik/arm-logspout"
+TAG = latest
 STACK = "elk"
-TAG := $(shell uname -m)
 
 all: build
 
-# git:
-# 	@git clone https://github.com/gliderlabs/logspout.git
-
-build: # git
+build:
 	@docker build -t ${IMAGE}:$(TAG) .
 
 push:
 	@docker push ${IMAGE}:$(TAG)
 
 deploy:
-	@docker stack deploy --resolve-image=never -c docker-compose.yml ${STACK}
+	@docker stack deploy -c docker-compose.yml ${STACK}
 
 .PHONY: all build push deploy
