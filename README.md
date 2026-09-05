@@ -15,7 +15,7 @@ docker run -d -v /var/run/docker.sock:/var/run/docker.sock \
 
 ```bash
 docker network create -d overlay elk   # once
-make deploy                            # global service, stack: elk
+just deploy                            # global service, stack: elk
 ```
 
 `ROUTE_URIS` defaults to `logstash://logstash:5000`.
@@ -23,8 +23,8 @@ make deploy                            # global service, stack: elk
 ## Build
 
 ```bash
-make build
-make push
+just build
+just push
 ```
 
 CI: PR builds + version/adapter checks; merge to main pushes multi-arch (amd64/arm64/armv7) to Docker Hub.

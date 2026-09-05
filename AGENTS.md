@@ -5,9 +5,9 @@ Multi-arch logspout image with the looplab logstash adapter, shipping container 
 ## Commands
 
 ```bash
-make build                                  # build jahrik/arm-logspout:latest
+just build                                  # build jahrik/arm-logspout:latest
 docker run --rm jahrik/arm-logspout:latest --version
-make deploy                                 # swarm stack deploy (stack: elk)
+just deploy                                 # swarm stack deploy (stack: elk)
 ```
 
 ## CI
